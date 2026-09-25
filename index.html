@@ -1,30 +1,169 @@
-<!doctype html><html lang='es'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>ElectroAprende | Electricidad desde cero</title><style>
-:root{--bg:#07111f;--panel:#0e1b2d;--card:#13243a;--accent:#ffd54a;--text:#eef5ff;--muted:#9fb0c6;--ok:#63d6a2}*{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Arial;background:linear-gradient(180deg,#07111f,#0a1525);color:var(--text)}header{padding:42px 7%;background:radial-gradient(circle at 80% 20%,#173b62,transparent 35%)}h1{font-size:clamp(2rem,5vw,4rem);margin:.1em 0}.tag{color:var(--accent);font-weight:800}.lead{max-width:800px;color:#c7d4e6;font-size:1.1rem}.wrap{padding:20px 7% 60px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}.card{background:var(--card);border:1px solid #243b58;border-radius:18px;padding:20px;box-shadow:0 12px 30px #0003}.card h3{margin-top:8px}.icon{font-size:2rem}.pill{display:inline-block;background:#1b3452;border-radius:99px;padding:5px 10px;color:#cfe3ff;font-size:.82rem}.lesson{margin-top:28px;background:var(--panel);border-radius:22px;padding:24px}.diagram{background:#fff;color:#17202a;border-radius:16px;padding:18px;overflow:auto}.circuit{display:flex;align-items:center;justify-content:center;gap:12px;min-width:600px;font-weight:700}.wire{height:5px;background:#222;flex:1}.battery{border:3px solid #222;padding:14px 8px;border-radius:8px}.resistor{border:3px solid #222;padding:10px 18px;transform:skew(-10deg)}.formula{font-size:1.6rem;text-align:center;background:#0a1525;padding:16px;border-radius:14px;color:var(--accent)}label{display:block;margin-top:10px;color:var(--muted)}input{width:100%;padding:12px;border-radius:10px;border:1px solid #35506e;background:#081421;color:white}button{margin-top:14px;padding:12px 16px;border:0;border-radius:10px;background:var(--accent);font-weight:800;cursor:pointer}.result{margin-top:12px;color:var(--ok);font-weight:800}.progress{height:10px;background:#07111f;border-radius:10px;overflow:hidden}.progress span{display:block;width:10%;height:100%;background:var(--accent)}footer{text-align:center;color:var(--muted);padding:30px}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}@media(max-width:750px){.two{grid-template-columns:1fr}}
-</style></head><body><header><div class='tag'>⚡ ACADEMIA PERSONAL</div><h1>ElectroAprende</h1><p class='lead'>Electricidad desde cero hasta mantenimiento industrial, con explicaciones visuales, diagramas, fórmulas, ejemplos, ejercicios y calculadoras.</p><div class='progress'><span></span></div><small>Ruta sugerida: Fundamentos → Circuitos → CA → Trifásica → Motores → Tableros → PLC → Mantenimiento</small></header><main class='wrap'><h2>Ruta de aprendizaje</h2><div class='grid'>
-<div class='card'><div class='icon'>🔋</div><span class='pill'>Nivel 1</span><h3>Fundamentos</h3><p>Voltaje, corriente, resistencia, potencia, energía y Ley de Ohm.</p></div>
-<div class='card'><div class='icon'>💡</div><span class='pill'>Nivel 2</span><h3>Circuitos</h3><p>Serie, paralelo, Kirchhoff, mediciones y diagnóstico básico.</p></div>
-<div class='card'><div class='icon'>〰️</div><span class='pill'>Nivel 3</span><h3>Corriente alterna</h3><p>Frecuencia, período, fase, RMS, potencia y factor de potencia.</p></div>
-<div class='card'><div class='icon'>⚙️</div><span class='pill'>Nivel 4</span><h3>Motores</h3><p>Monofásicos, trifásicos, placa, conexiones, arranques y fallas.</p></div>
-<div class='card'><div class='icon'>🧰</div><span class='pill'>Nivel 5</span><h3>Tableros eléctricos</h3><p>Breakers, contactores, relés, protecciones, cableado y planos.</p></div>
-<div class='card'><div class='icon'>🤖</div><span class='pill'>Nivel 6</span><h3>PLC y automatización</h3><p>Sensores, actuadores, entradas/salidas, ladder y variadores.</p></div>
-<div class='card'><div class='icon'>🔧</div><span class='pill'>Nivel 7</span><h3>Mantenimiento industrial</h3><p>Preventivo, correctivo, seguridad y diagnóstico ordenado.</p></div>
-<div class='card'><div class='icon'>📚</div><span class='pill'>Biblioteca</span><h3>Archivos</h3><p>Espacio para tus PDFs, manuales, planos, tareas y apuntes.</p></div></div>
-<section class='lesson'><h2>Lección 1 · ¿Qué es un circuito eléctrico?</h2><div class='two'><div><p>Un circuito necesita una <b>fuente</b> que genere diferencia de potencial, <b>conductores</b> por donde circule la corriente y una <b>carga</b> que utilice la energía.</p><div class='formula'>V = I × R</div><p><b>V</b>: voltios · <b>I</b>: amperios · <b>R</b>: ohmios</p></div><div class='diagram'><div class='circuit'><div class='battery'>+ 🔋 −<br>FUENTE</div><div class='wire'></div><div class='resistor'>💡 CARGA</div><div class='wire'></div><div>↩ CORRIENTE</div></div><p style='text-align:center'>Esquema conceptual de un circuito cerrado</p></div></div></section>
-<section class='lesson'><h2>Calculadora · Ley de Ohm</h2><p>Ingresa voltaje y resistencia para calcular la corriente.</p><div class='two'><div><label>Voltaje (V)</label><input id='v' type='number' value='120'><label>Resistencia (Ω)</label><input id='r' type='number' value='60'><button onclick='calc()'>Calcular corriente</button><div id='out' class='result'></div></div><div class='card'><h3>Ejemplo visual</h3><p>Si aplicamos <b>120 V</b> a una resistencia de <b>60 Ω</b>:</p><div class='formula'>I = 120 / 60 = 2 A</div><p>La corriente que circula es de <b>2 amperios</b>.</p></div></div></section>
-
-<section class='lesson' id='planos'><h2>📐 Lectura de planos · Arranque directo de motor trifásico</h2><p><b>Objetivo:</b> aprender a seguir un circuito industrial desde la alimentación hasta el motor y relacionar cada símbolo con sus bornes. Este esquema es didáctico: antes de intervenir un equipo real se debe desenergizar, bloquear, verificar ausencia de tensión y respetar placa/manual del fabricante.</p>
-<div class='two'>
-<div class='card'><h3>1 · Circuito de potencia</h3><div class='diagram'><svg viewBox='0 0 620 390' width='100%' role='img' aria-label='Diagrama didáctico de potencia para motor trifásico'>
-<text x='20' y='28' font-weight='700'>L1</text><text x='20' y='58' font-weight='700'>L2</text><text x='20' y='88' font-weight='700'>L3</text>
-<g stroke='#17202a' stroke-width='3' fill='none'><path d='M50 22H135 M50 52H135 M50 82H135'/><rect x='135' y='8' width='80' height='90' rx='8'/><path d='M215 22H285 M215 52H285 M215 82H285'/><rect x='285' y='8' width='90' height='90' rx='8'/><path d='M375 22H445 M375 52H445 M375 82H445'/><rect x='445' y='8' width='95' height='90' rx='8'/><path d='M492 98V155'/><circle cx='492' cy='215' r='58'/><path d='M492 273V315'/></g>
-<text x='151' y='42' font-weight='700'>Q1</text><text x='143' y='65' font-size='13'>Protección</text><text x='307' y='42' font-weight='700'>KM1</text><text x='296' y='65' font-size='13'>Contactor</text><text x='467' y='42' font-weight='700'>FR1</text><text x='454' y='65' font-size='13'>Relé térmico</text><text x='468' y='220' font-weight='700' font-size='22'>M 3~</text><text x='440' y='345' font-size='13'>PE → carcasa / tierra</text>
-<text x='70' y='125' font-size='13'>Ruta: red → protección → maniobra → sobrecarga → motor</text></svg></div><p><b>Bornes típicos:</b> KM1 recibe L1/L2/L3 y entrega T1/T2/T3. FR1 continúa hacia U/V/W del motor. La denominación exacta puede variar por fabricante.</p></div>
-<div class='card'><h3>2 · Circuito de mando</h3><div class='diagram'><svg viewBox='0 0 620 390' width='100%' role='img' aria-label='Diagrama didáctico de mando con paro marcha y enclavamiento'>
-<g stroke='#17202a' stroke-width='3' fill='none'><path d='M55 35V340 M560 35V340'/><path d='M55 90H120'/><path d='M120 70V110 M145 70V110'/><path d='M145 90H215'/><path d='M215 70V110 M240 70V110'/><path d='M240 90H315'/><path d='M315 70V110 M340 70V110'/><path d='M340 90H455'/><circle cx='490' cy='90' r='34'/><path d='M524 90H560'/><path d='M240 90V155H315'/><path d='M315 135V175 M340 135V175'/><path d='M340 155H390V90'/></g>
-<text x='62' y='28' font-weight='700'>L / +</text><text x='542' y='28' font-weight='700'>N / −</text><text x='111' y='132' font-size='13'>S0 PARO</text><text x='108' y='148' font-size='12'>NC</text><text x='204' y='132' font-size='13'>FR1 95-96</text><text x='208' y='148' font-size='12'>NC</text><text x='300' y='132' font-size='13'>S1 MARCHA</text><text x='305' y='148' font-size='12'>NO</text><text x='300' y='198' font-size='13'>KM1 13-14</text><text x='307' y='214' font-size='12'>NO enclavamiento</text><text x='470' y='95' font-weight='700'>KM1</text><text x='461' y='145' font-size='13'>A1 — A2</text></svg></div><p>Al pulsar <b>MARCHA</b>, se energiza la bobina KM1. Su auxiliar <b>13-14</b> mantiene el circuito. <b>PARO</b> o la apertura <b>95-96</b> del térmico desenergizan la bobina.</p></div></div>
-<div class='grid' style='margin-top:16px'><div class='card'><b>Q1 · Protección</b><p>Aísla/protege el circuito según el diseño. No sustituye la selección correcta de protección contra cortocircuito.</p></div><div class='card'><b>KM1 · Contactor</b><p>Conecta y desconecta las tres fases mediante una bobina de mando.</p></div><div class='card'><b>FR1 · Relé térmico</b><p>Protege frente a sobrecarga; su contacto NC 95-96 abre el mando cuando dispara.</p></div><div class='card'><b>M1 · Motor</b><p>Antes de conectar, comprobar placa: tensión, corriente, frecuencia y esquema Y/Δ.</p></div></div>
-<h3 style='margin-top:24px'>Cómo leerlo paso a paso</h3><ol><li>Localiza la fuente y las tres fases.</li><li>Sigue cada conductor por Q1, KM1 y FR1 hasta M1.</li><li>En el mando, empieza en L/+ y sigue S0 → 95-96 → S1 → bobina KM1 → N/−.</li><li>Identifica el ramal paralelo 13-14: es el enclavamiento.</li><li>Si el motor no arranca, comprueba el circuito de forma lógica y con el equipo en condición segura; no puentes protecciones para “probar”.</li></ol>
-<div class='card'><h3>🧠 Mini ejercicio</h3><p>El motor funcionaba y FR1 disparó. Después de corregir la causa de la sobrecarga, ¿qué contacto del circuito de mando debes comprender antes de intentar un rearme?</p><button onclick="document.getElementById('quiz1').textContent='Respuesta: 95-96. Es el contacto normalmente cerrado del relé térmico que abre el circuito de la bobina cuando FR1 dispara.'">Ver respuesta</button><div id='quiz1' class='result'></div></div>
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ElectroAprende | Curso completo de electricidad industrial</title>
+<style>
+:root{--bg:#07111f;--panel:#0d1c31;--card:#132743;--line:#28496f;--accent:#ffd54a;--text:#eef5ff;--muted:#a9bad0;--ok:#70e1a1;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+header{padding:48px 6vw 34px;background:linear-gradient(135deg,#0b203d,#07111f);border-bottom:1px solid var(--line)}header h1{font-size:clamp(2.3rem,6vw,4.8rem);margin:.1em 0}header p{max-width:900px;font-size:1.1rem;color:var(--muted)}.tag{color:var(--accent);font-weight:800;letter-spacing:.08em}
+nav{position:sticky;top:0;z-index:5;background:#081526ee;backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 6vw;display:flex;gap:10px;overflow:auto}nav a{color:var(--text);text-decoration:none;white-space:nowrap;padding:8px 12px;border:1px solid var(--line);border-radius:999px}
+main{max-width:1180px;margin:auto;padding:28px 20px 80px}.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:20px 0 40px}.module{text-decoration:none;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:7px}.module:hover{transform:translateY(-2px);border-color:var(--accent)}.module small{color:var(--muted)}.ico{font-size:1.6rem}
+.lesson{scroll-margin-top:75px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,38px);margin:22px 0}.lesson-head{display:flex;gap:14px;align-items:center;border-bottom:1px solid var(--line);margin-bottom:22px}.lesson-head span{background:var(--accent);color:#111;border-radius:10px;padding:6px 10px;font-weight:900}h2{font-size:clamp(1.6rem,3vw,2.4rem)}h3{margin-top:1.4em}.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}@media(max-width:760px){.cols{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;background:#0a1728;border-radius:12px;overflow:hidden}th,td{padding:11px;border-bottom:1px solid #203a59;text-align:left}th{color:var(--accent)}.formula,.example,.warn,.ladder,.legend{background:#091728;border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}.formula strong{display:block;font-size:2rem;color:var(--accent);margin:12px 0}.warn{border-left:5px solid var(--accent)}.diagram{margin:18px 0}.flow{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap}.flow div{background:#102846;border:1px solid #3a618d;border-radius:10px;padding:13px 16px;flex:1;min-width:120px;text-align:center;font-weight:700}.flow div:not(:last-child)::after{content:" →";color:var(--accent)}.vertical{display:flex;flex-direction:column;align-items:center;gap:6px;background:#fff;color:#111;padding:20px;border-radius:16px}.vertical em{font-size:1.5rem;color:#555}.ladder{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;overflow:auto;white-space:nowrap;color:#dff1ff}.ladder span{color:var(--accent)}.wave svg{background:#fff;border-radius:16px;width:100%;max-height:220px}.wave line,.wave path{stroke:#17202a;stroke-width:3;fill:none}.wave text{fill:#17202a;font-size:18px}.terminal{background:#0a1728;border:1px solid var(--line);border-radius:16px;padding:18px}.termrow{display:flex;justify-content:center;gap:24px;margin:15px}.termrow i{font-style:normal;background:#fff;color:#111;width:58px;height:58px;border:6px solid #b9c4cf;border-radius:50%;display:grid;place-items:center;font-weight:900}.big{max-width:520px;margin:18px auto}.legend{display:flex;gap:12px;flex-wrap:wrap}.legend span{border:1px solid #37597e;padding:8px;border-radius:8px}.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:15px 0}.steps b{background:#102846;border:1px solid #3a618d;padding:12px;border-radius:10px}button{background:var(--accent);border:0;border-radius:8px;padding:7px 10px;font-weight:800;cursor:pointer}#calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}input,select{width:100%;padding:11px;border-radius:8px;border:1px solid var(--line);background:#07111f;color:var(--text)}footer{padding:35px 6vw;border-top:1px solid var(--line);color:var(--muted);text-align:center}.safety{border:1px solid #765f14;background:#211d0b;border-radius:16px;padding:18px;margin:20px 0}a{color:#8ec5ff}
+</style></head><body>
+<header><div class="tag">⚡ ELECTROAPRENDE · JOSÉ SILVA</div><h1>Electricidad desde cero hasta mantenimiento industrial</h1>
+<p>Curso visual y progresivo para comprender fundamentos, planos, motores, control, automatización y diagnóstico. Diseñado como material de estudio; los esquemas genéricos no sustituyen planos, placa, manuales, normativa ni procedimientos de seguridad de un equipo real.</p></header>
+<nav><a href="#ruta">📚 Módulos</a><a href="#m07">📐 Planos</a><a href="#m09">⚙️ Motores</a><a href="#m16">🤖 PLC</a><a href="#m19">🔧 Fallas</a><a href="#calculadoras">🧮 Calculadoras</a></nav>
+<main>
+<section class="safety"><b>Seguridad:</b> antes de intervenir una instalación real, desenergizar cuando corresponda, aplicar bloqueo/etiquetado según procedimiento, verificar ausencia de tensión con método e instrumento apropiados y seguir documentación del fabricante y normativa aplicable. Las mediciones energizadas requieren personal competente y controles específicos.</section>
+<h2 id="ruta">Ruta completa — 20 módulos</h2><div class="modules"><a class="module" href="#m01"><span class="ico">⚡</span><b>01. Fundamentos</b><small>Carga, tensión, corriente, resistencia, potencia y energía. Ley de Ohm y seguridad básica.</small></a>
+<a class="module" href="#m02"><span class="ico">🔋</span><b>02. Circuitos CC</b><small>Serie, paralelo, leyes de Kirchhoff, divisores y ejercicios resueltos.</small></a>
+<a class="module" href="#m03"><span class="ico">〰️</span><b>03. Corriente alterna</b><small>Senoide, frecuencia, período, fase, RMS, factor de potencia y potencia AC.</small></a>
+<a class="module" href="#m04"><span class="ico">🔺</span><b>04. Sistemas trifásicos</b><small>Línea/fase, estrella y triángulo, secuencia de fases y potencia trifásica.</small></a>
+<a class="module" href="#m05"><span class="ico">📏</span><b>05. Instrumentos de medición</b><small>Multímetro, pinza amperimétrica, megóhmetro y puntos de comprobación.</small></a>
+<a class="module" href="#m06"><span class="ico">🛡️</span><b>06. Protecciones eléctricas</b><small>Fusibles, interruptores, diferencial, guardamotor, relé térmico y coordinación conceptual.</small></a>
+<a class="module" href="#m07"><span class="ico">📐</span><b>07. Lectura de planos</b><small>Simbología, unifilar, multifilar, potencia, mando, borneras y referencias.</small></a>
+<a class="module" href="#m08"><span class="ico">🎛️</span><b>08. Contactores y mando</b><small>Bobinas, contactos NO/NC, enclavamiento, pulsadores, pilotos y relés auxiliares.</small></a>
+<a class="module" href="#m09"><span class="ico">⚙️</span><b>09. Motores eléctricos</b><small>Placa, principio de funcionamiento, bornera, estrella/triángulo y diagnóstico.</small></a>
+<a class="module" href="#m10"><span class="ico">▶️</span><b>10. Arranque directo</b><small>Potencia, mando, protección, auto-mantenimiento y secuencia de funcionamiento.</small></a>
+<a class="module" href="#m11"><span class="ico">↔️</span><b>11. Inversión de giro</b><small>Dos contactores, inversión de fases y enclavamientos eléctricos/mecánicos.</small></a>
+<a class="module" href="#m12"><span class="ico">⭐</span><b>12. Estrella-triángulo</b><small>KM principal, estrella, triángulo, temporización y transición.</small></a>
+<a class="module" href="#m13"><span class="ico">🔄</span><b>13. Variadores y soft starters</b><small>Conceptos, bornes típicos, parametrización segura y aplicaciones.</small></a>
+<a class="module" href="#m14"><span class="ico">🔌</span><b>14. Transformadores y fuentes</b><small>Relación de transformación, aislamiento, fuentes AC/DC y control.</small></a>
+<a class="module" href="#m15"><span class="ico">📡</span><b>15. Sensores industriales</b><small>Inductivos, capacitivos, fotoeléctricos, finales de carrera, PNP/NPN.</small></a>
+<a class="module" href="#m16"><span class="ico">🤖</span><b>16. PLC y automatización</b><small>Entradas/salidas, lógica básica, ladder conceptual, sensores y actuadores.</small></a>
+<a class="module" href="#m17"><span class="ico">🗄️</span><b>17. Tableros eléctricos</b><small>Distribución, canaletas, borneras, PE, identificación y documentación.</small></a>
+<a class="module" href="#m18"><span class="ico">🔧</span><b>18. Mantenimiento industrial</b><small>Preventivo, predictivo, inspección, limpieza, apriete, registro y tendencias.</small></a>
+<a class="module" href="#m19"><span class="ico">🧭</span><b>19. Diagnóstico de fallas</b><small>Método sistemático para motor no arranca, disparos, pérdida de fase y sobrecorriente.</small></a>
+<a class="module" href="#m20"><span class="ico">📝</span><b>20. Práctica y evaluación</b><small>Casos, preguntas, ejercicios y ruta de estudio para consolidar conocimientos.</small></a></div>
+<section class="lesson" id="m01"><div class="lesson-head"><span>01</span><h2>Fundamentos eléctricos</h2></div>
+<div class="cols"><div><h3>Las cuatro magnitudes esenciales</h3>
+<table><tr><th>Magnitud</th><th>Símbolo</th><th>Unidad</th><th>Idea</th></tr>
+<tr><td>Tensión</td><td>V</td><td>voltio (V)</td><td>Diferencia de potencial que impulsa la corriente.</td></tr>
+<tr><td>Corriente</td><td>I</td><td>amperio (A)</td><td>Flujo de carga eléctrica.</td></tr>
+<tr><td>Resistencia</td><td>R</td><td>ohmio (Ω)</td><td>Oposición al paso de corriente.</td></tr>
+<tr><td>Potencia</td><td>P</td><td>vatio (W)</td><td>Rapidez con que se transfiere energía.</td></tr></table></div>
+<div class="formula"><b>Ley de Ohm</b><strong>V = I × R</strong><p>I = V/R &nbsp; • &nbsp; R = V/I</p>
+<b>Potencia CC</b><strong>P = V × I</strong><p>También P = I²R y P = V²/R.</p></div></div>
+<div class="example"><b>Ejemplo:</b> una resistencia de 24 Ω conectada a 12 V consume I = 12/24 = <b>0,5 A</b> y P = 12×0,5 = <b>6 W</b>.</div>
 </section>
-<section class='lesson'><h2>Diagnóstico industrial · Motor no arranca</h2><div class='grid'><div class='card'><b>1. Seguridad</b><p>Detener, aislar y aplicar procedimientos de bloqueo antes de intervenir.</p></div><div class='card'><b>2. Alimentación</b><p>Verificar tensión, fases y protecciones con instrumentos adecuados.</p></div><div class='card'><b>3. Control</b><p>Revisar paro/emergencia, contactor, relé térmico, sensores y señales.</p></div><div class='card'><b>4. Motor/carga</b><p>Comprobar conexiones y condición mecánica antes de concluir la falla.</p></div></div></section>
-</main><footer>ElectroAprende · Biblioteca personal de Electricidad e Ingeniería Eléctrica</footer><script>function calc(){const v=+document.getElementById('v').value,r=+document.getElementById('r').value;document.getElementById('out').textContent=r>0?`Corriente = ${(v/r).toFixed(2)} A`:'La resistencia debe ser mayor que 0';}</script></body></html>
+<section class="lesson" id="m02"><div class="lesson-head"><span>02</span><h2>Circuitos de corriente continua</h2></div>
+<div class="diagram flow"><div>+ Fuente</div><div>Protección</div><div>Interruptor</div><div>Carga</div><div>− Retorno</div></div>
+<div class="cols"><div><h3>Serie</h3><p>La corriente es la misma en todos los elementos. Las resistencias se suman: <b>RT = R1 + R2 + …</b>.</p></div>
+<div><h3>Paralelo</h3><p>La tensión es la misma en cada rama. <b>1/RT = 1/R1 + 1/R2 + …</b>.</p></div></div>
+<p><b>Kirchhoff:</b> en un nodo, la suma de corrientes que entran equivale a la que sale; en una malla cerrada, la suma algebraica de tensiones es cero.</p>
+</section>
+<section class="lesson" id="m03"><div class="lesson-head"><span>03</span><h2>Corriente alterna</h2></div>
+<div class="wave"><svg viewBox="0 0 800 180" role="img" aria-label="Onda senoidal"><line x1="20" y1="90" x2="780" y2="90"/><path d="M20 90 C70 10 120 10 170 90 S270 170 320 90 S420 10 470 90 S570 170 620 90 S720 10 780 90"/><text x="25" y="25">+Vm</text><text x="25" y="165">−Vm</text><text x="680" y="75">tiempo →</text></svg></div>
+<p><b>f</b> es frecuencia (Hz), <b>T = 1/f</b> es período. Para una senoide: <b>v(t)=Vm·sen(ωt+φ)</b>, con ω=2πf. En una senoide ideal, <b>Vrms = Vm/√2</b>.</p>
+<p>En cargas AC aparecen potencia activa P (W), reactiva Q (var) y aparente S (VA). El factor de potencia relaciona P/S.</p>
+</section>
+<section class="lesson" id="m04"><div class="lesson-head"><span>04</span><h2>Sistemas trifásicos</h2></div>
+<div class="cols"><div class="terminal"><h3>Estrella (Y) — concepto</h3><div class="termrow"><i>U1</i><i>V1</i><i>W1</i></div><div class="termrow"><i>U2</i><i>V2</i><i>W2</i></div><p>Un extremo de cada devanado comparte un punto común. En sistema equilibrado: <b>VL = √3·VF</b>.</p></div>
+<div class="terminal"><h3>Triángulo (Δ) — concepto</h3><div class="termrow"><i>U1</i><i>V1</i><i>W1</i></div><div class="termrow"><i>W2</i><i>U2</i><i>V2</i></div><p>Los devanados forman un circuito cerrado. <b>VL = VF</b>.</p></div></div>
+<div class="warn"><b>Placa primero.</b> La disposición física de bornes y puentes no debe asumirse: se confirma con la placa y el esquema del fabricante. Una placa 230/400 V Δ/Y no se interpreta igual que una 400/690 V Δ/Y.</div>
+<p>Potencia activa trifásica equilibrada: <b>P = √3 · VL · IL · cosφ</b> (para el modelo sinusoidal convencional).</p>
+</section>
+<section class="lesson" id="m05"><div class="lesson-head"><span>05</span><h2>Instrumentos de medición</h2></div>
+<table><tr><th>Instrumento</th><th>Uso típico</th><th>Regla clave</th></tr>
+<tr><td>Multímetro</td><td>Tensión, resistencia, continuidad y otras magnitudes según modelo</td><td>Resistencia/continuidad solo con circuito desenergizado y verificado.</td></tr>
+<tr><td>Pinza amperimétrica</td><td>Corriente sin abrir el conductor</td><td>Abrazar un conductor de fase, no todo el cable multiconductor.</td></tr>
+<tr><td>Megóhmetro</td><td>Resistencia de aislamiento</td><td>Aislar equipos electrónicos sensibles y seguir fabricante/procedimiento.</td></tr></table>
+<div class="warn">Medir tensión en equipos energizados es trabajo de riesgo. Este curso enseña interpretación y diagnóstico conceptual; una medición real exige capacitación, EPP, instrumento con categoría adecuada y procedimiento de seguridad de la instalación.</div>
+</section>
+<section class="lesson" id="m06"><div class="lesson-head"><span>06</span><h2>Protecciones eléctricas</h2></div>
+<div class="flow diagram"><div>Red</div><div>Seccionamiento</div><div>Cortocircuito</div><div>Sobrecarga</div><div>Carga</div></div>
+<p><b>Fusible/interruptor:</b> protección frente a sobrecorrientes según diseño. <b>Relé térmico:</b> protege al motor frente a sobrecarga/pérdidas de fase según dispositivo. <b>Guardamotor:</b> integra funciones que dependen del modelo. <b>Diferencial:</b> detecta corriente residual; no reemplaza la protección contra sobrecorriente.</p>
+<p>La selección de calibre, curva, poder de corte, coordinación y conductor requiere datos reales del sistema y normativa aplicable; no debe decidirse solo a partir de un esquema didáctico.</p>
+</section>
+<section class="lesson" id="m07"><div class="lesson-head"><span>07</span><h2>Lectura de planos eléctricos</h2></div>
+<h3>Método de lectura</h3><ol><li>Identifica fuente y tensión de control/potencia.</li><li>Ubica protecciones y seccionamiento.</li><li>Sigue el circuito de izquierda a derecha o de arriba abajo según convención.</li><li>Relaciona referencias: Q (protección), KM/K (contactor/relé), FR (sobrecarga), S (pulsador/sensor), M (motor), X (bornera), PE (protección a tierra).</li><li>Busca contactos asociados a cada bobina y referencias cruzadas.</li><li>Separa siempre <b>potencia</b> de <b>mando/control</b>.</li></ol>
+<div class="legend"><span>—| |— NO</span><span>—|/|— NC</span><span>( KM1 ) bobina</span><span>M 3~ motor trifásico</span><span>PE tierra de protección</span></div>
+</section>
+<section class="lesson" id="m08"><div class="lesson-head"><span>08</span><h2>Contactores y circuitos de mando</h2></div>
+<div class="cols"><div><h3>Bornes habituales</h3><p><b>A1–A2:</b> bobina. <b>13–14:</b> auxiliar NO frecuente. <b>21–22:</b> auxiliar NC frecuente. En potencia pueden verse L1/L2/L3 y T1/T2/T3. <b>Verificar siempre el marcado real.</b></p></div>
+<div><h3>Enclavamiento</h3><p>Un contacto auxiliar NO del propio contactor se coloca en paralelo con MARCHA para mantener la bobina energizada después de soltar el pulsador.</p></div></div>
+<div class="ladder"><b>L/+</b> ──[ PARO NC ]──[ TÉRMICO NC ]──┬──[ MARCHA NO ]──┬──( KM1 )── <b>N/−</b><br>
+<span>　　　　　　　　　　　　　　　　└──[ KM1 AUX NO ]─┘</span></div>
+</section>
+<section class="lesson" id="m09"><div class="lesson-head"><span>09</span><h2>Motores eléctricos</h2></div>
+<div class="cols"><div><h3>Qué leer en la placa</h3><p>Potencia, tensión(es), corriente(s), frecuencia, velocidad, cosφ, eficiencia, servicio, clase de aislamiento, IP y esquema Δ/Y cuando corresponda.</p></div>
+<div><h3>Bornera</h3><p>Es frecuente encontrar seis extremos de devanado identificados U1, V1, W1, U2, V2, W2, pero <b>su posición física debe confirmarse</b>.</p></div></div>
+<div class="terminal big"><div class="termrow"><i>U1</i><i>V1</i><i>W1</i></div><div class="termrow"><i>U2</i><i>V2</i><i>W2</i></div></div>
+<p>Para invertir el sentido de giro de un motor trifásico convencional se intercambian dos fases, pero la implementación real requiere protecciones y enclavamientos apropiados.</p>
+</section>
+<section class="lesson" id="m10"><div class="lesson-head"><span>10</span><h2>Arranque directo de motor trifásico</h2></div>
+<div class="cols"><div><h3>Potencia</h3><div class="vertical"><b>L1 · L2 · L3</b><em>↓</em><b>Q1 Protección</b><em>↓</em><b>KM1 Contactor</b><em>↓</em><b>FR1 Relé térmico</b><em>↓</em><b>M1 3~</b></div></div>
+<div><h3>Mando</h3><div class="ladder">L/+ ─[S0 PARO NC]─[FR1 95-96]─┬─[S1 MARCHA NO]─┬─(KM1 A1/A2)─ N/−<br>　　　　　　　　　　　　 └─[KM1 13-14]────┘</div></div></div>
+<p><b>Secuencia:</b> MARCHA energiza KM1 → sus contactos de potencia alimentan el motor → 13-14 mantiene la bobina. PARO o la actuación del térmico abre el mando y KM1 cae.</p>
+</section>
+<section class="lesson" id="m11"><div class="lesson-head"><span>11</span><h2>Inversión de giro</h2></div>
+<div class="flow diagram"><div>Q1</div><div>KM1 Adelante</div><div>FR1</div><div>M1</div></div>
+<div class="flow diagram"><div>Q1</div><div>KM2 Reversa<br><small>dos fases permutadas</small></div><div>FR1</div><div>M1</div></div>
+<p>KM1 y KM2 <b>no deben cerrar simultáneamente</b>. El diseño usa enclavamiento eléctrico (contactos NC cruzados) y normalmente enclavamiento mecánico entre contactores compatibles.</p>
+</section>
+<section class="lesson" id="m12"><div class="lesson-head"><span>12</span><h2>Arranque estrella-triángulo</h2></div>
+<div class="flow diagram"><div>Q1</div><div>KM1 Principal</div><div>Motor 6 bornes</div></div>
+<div class="cols"><div><h3>Etapa estrella</h3><p>KM1 + KM estrella cierran durante el arranque. Cada devanado recibe una tensión menor que en triángulo para la misma tensión de línea.</p></div>
+<div><h3>Etapa triángulo</h3><p>Tras la temporización, estrella abre; después de un intervalo seguro, triángulo cierra. Los dos contactores nunca deben solaparse.</p></div></div>
+<div class="warn">Solo es aplicable cuando la placa, la tensión de red, los seis extremos accesibles y el diseño del fabricante permiten operar el motor finalmente en Δ a esa red.</div>
+</section>
+<section class="lesson" id="m13"><div class="lesson-head"><span>13</span><h2>Variadores de frecuencia y arrancadores suaves</h2></div>
+<p><b>VFD:</b> rectifica la entrada, crea un bus DC y sintetiza una salida de frecuencia/tensión controlada para el motor. Permite control de velocidad, rampas y protecciones/diagnósticos según equipo.</p>
+<p><b>Soft starter:</b> controla el arranque/parada reduciendo esfuerzos eléctricos/mecánicos, pero normalmente no proporciona control continuo de velocidad como un VFD.</p>
+<div class="warn">Los bornes, parámetros, puesta a tierra, cableado EMC y protecciones varían por fabricante. Nunca se debe copiar un esquema genérico como cableado definitivo.</div>
+</section>
+<section class="lesson" id="m14"><div class="lesson-head"><span>14</span><h2>Transformadores y fuentes de control</h2></div>
+<div class="formula"><b>Transformador ideal</b><strong>V1 / V2 = N1 / N2</strong><p>La relación de tensión sigue la relación de espiras en el modelo ideal.</p></div>
+<p>En tableros se emplean transformadores o fuentes para obtener tensiones de control apropiadas. La separación galvánica, puesta a tierra del secundario y protección dependen del diseño.</p>
+</section>
+<section class="lesson" id="m15"><div class="lesson-head"><span>15</span><h2>Sensores industriales</h2></div>
+<table><tr><th>Sensor</th><th>Detecta</th><th>Aplicación</th></tr>
+<tr><td>Inductivo</td><td>Metales</td><td>Posición/presencia sin contacto</td></tr>
+<tr><td>Capacitivo</td><td>Materiales metálicos y no metálicos según ajuste</td><td>Nivel/presencia</td></tr>
+<tr><td>Fotoeléctrico</td><td>Interrupción/reflexión de luz</td><td>Conteo y presencia</td></tr>
+<tr><td>Final de carrera</td><td>Contacto mecánico</td><td>Posición límite</td></tr></table>
+<p><b>PNP/NPN:</b> describe la forma de conmutación de muchas salidas DC; debe coincidir con el esquema de entrada del PLC/controlador.</p>
+</section>
+<section class="lesson" id="m16"><div class="lesson-head"><span>16</span><h2>PLC y automatización</h2></div>
+<div class="flow diagram"><div>Sensor</div><div>Entrada PLC</div><div>Lógica</div><div>Salida PLC</div><div>Relé/contactor</div><div>Actuador</div></div>
+<div class="ladder">|──[ I0.0 MARCHA ]──[/ I0.1 PARO ]────────( Q0.0 MOTOR )──|</div>
+<p>El ejemplo ladder es conceptual. En una máquina real, funciones de seguridad como parada de emergencia requieren arquitectura y componentes de seguridad apropiados; no deben depender únicamente de lógica PLC estándar.</p>
+</section>
+<section class="lesson" id="m17"><div class="lesson-head"><span>17</span><h2>Tableros eléctricos</h2></div>
+<h3>Lectura física del tablero</h3><div class="flow diagram"><div>Entrada</div><div>Seccionador</div><div>Protecciones</div><div>Contactores/VFD</div><div>Borneras</div><div>Campo</div></div>
+<p>Busca etiquetas, referencias cruzadas, numeración de conductores, canaletas, separación de potencia/control, barra PE, borneras y documentación. Un buen diagnóstico relaciona <b>plano ↔ etiqueta ↔ componente ↔ borne</b>.</p>
+</section>
+<section class="lesson" id="m18"><div class="lesson-head"><span>18</span><h2>Mantenimiento eléctrico industrial</h2></div>
+<div class="cols"><div><h3>Preventivo</h3><p>Inspección, limpieza adecuada, ventilación, conexiones según procedimiento/torque especificado, estado de aislamiento, protecciones, filtros y registros.</p></div>
+<div><h3>Predictivo</h3><p>Tendencias de corriente, temperatura, vibración, aislamiento y otras variables con técnicas/equipos apropiados.</p></div></div>
+<p>Registrar fecha, activo, condición encontrada, mediciones, acción tomada y seguimiento convierte el mantenimiento en información útil para confiabilidad.</p>
+</section>
+<section class="lesson" id="m19"><div class="lesson-head"><span>19</span><h2>Diagnóstico sistemático de fallas</h2></div>
+<h3>Caso: el motor no arranca</h3>
+<div class="steps"><b>1. Seguridad/estado</b><b>2. Plano y síntomas</b><b>3. Fuente/protecciones</b><b>4. Circuito de mando</b><b>5. Contactor/térmico</b><b>6. Motor/carga</b></div>
+<table><tr><th>Síntoma</th><th>Qué revisar conceptualmente</th></tr>
+<tr><td>No hace nada</td><td>Fuente de control, PARO/emergencia, térmico, permisos/interlocks, bobina.</td></tr>
+<tr><td>Contactor entra, motor no gira</td><td>Potencia, contactos, térmico, continuidad del circuito desenergizado, motor/carga.</td></tr>
+<tr><td>Térmico dispara</td><td>Corriente por fase, carga mecánica, pérdida/desbalance de fase, ajuste conforme placa/diseño.</td></tr>
+<tr><td>Giro incorrecto</td><td>Secuencia de fases y esquema previsto.</td></tr></table>
+<p><b>Regla:</b> no cambiar componentes al azar. Primero definir el síntoma, seguir el plano, comprobar por etapas y registrar evidencia.</p>
+</section>
+<section class="lesson" id="m20"><div class="lesson-head"><span>20</span><h2>Práctica, ejercicios y autoevaluación</h2></div>
+<div class="quiz">
+<p><b>1.</b> ¿Qué contacto típico del relé térmico se usa en serie con la bobina de mando? <button onclick="ans(this,'95–96 (NC), cuando ese marcado aplica al dispositivo.')">Ver respuesta</button></p>
+<p><b>2.</b> ¿Para qué se usa 13–14 en el ejemplo de arranque directo? <button onclick="ans(this,'Como contacto auxiliar NO de auto-mantenimiento de KM1.')">Ver respuesta</button></p>
+<p><b>3.</b> ¿Qué debes consultar antes de decidir Y o Δ? <button onclick="ans(this,'La placa del motor, tensión de red y esquema/manual del fabricante.')">Ver respuesta</button></p>
+<p><b>4.</b> Un contactor cierra pero el motor no gira. ¿Debes cambiar el contactor de inmediato? <button onclick="ans(this,'No. Se diagnostica por etapas: potencia, contactos, térmico, motor y carga.')">Ver respuesta</button></p>
+</div>
+<h3>Ruta recomendada</h3><p>Completa 01–08 antes de profundizar en motores; después 09–13; continúa con sensores/PLC y termina con tableros, mantenimiento y diagnóstico. Practica lectura de planos en cada etapa.</p>
+</section>
+<section class="lesson" id="calculadoras"><div class="lesson-head"><span>🧮</span><h2>Calculadoras rápidas</h2></div>
+<div id="calc"><label>Voltaje V<input id="v" type="number" step="any"></label><label>Resistencia Ω<input id="r" type="number" step="any"></label><label>Corriente A<input id="i" type="number" step="any"></label><label>Potencia W<input id="p" type="number" step="any"></label></div>
+<p><button onclick="ohm()">Calcular desde V y R</button> <button onclick="clearCalc()">Limpiar</button></p><div class="example" id="result">Ingresa V y R para calcular I y P.</div>
+</section>
+</main><footer>ElectroAprende · Curso personal de Electricidad e Ingeniería Eléctrica · Versión completa 2026</footer>
+<script>
+function ans(b,t){b.insertAdjacentHTML('afterend',' <strong style="color:#70e1a1">'+t+'</strong>');b.remove()}
+function ohm(){let v=parseFloat(document.getElementById('v').value),r=parseFloat(document.getElementById('r').value);if(!isFinite(v)||!isFinite(r)||r===0){document.getElementById('result').textContent='Ingresa V y una R distinta de cero.';return}let i=v/r,p=v*i;document.getElementById('i').value=i.toFixed(4);document.getElementById('p').value=p.toFixed(4);document.getElementById('result').textContent=`I = ${i.toFixed(4)} A · P = ${p.toFixed(4)} W`;}
+function clearCalc(){['v','r','i','p'].forEach(x=>document.getElementById(x).value='');document.getElementById('result').textContent='Ingresa V y R para calcular I y P.'}
+</script></body></html>
